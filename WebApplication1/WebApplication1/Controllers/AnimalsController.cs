@@ -24,5 +24,13 @@ namespace WebApplication1.Controllers
             var animals = Database.Animals.FirstOrDefault(x => x.id == id);
             return Ok(animals);
         }
+
+        [HttpPost]
+        public IActionResult Add([FromBody] Animal animal)
+        {
+            Database.Animals.Add(animal);
+            return Created();
+        }
+        
     }
 }
